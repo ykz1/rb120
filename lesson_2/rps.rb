@@ -15,6 +15,7 @@ Game
 
 class Move
   attr_reader :value
+
   VALUES = %w(rock paper scissors)
 
   def initialize(value)
@@ -25,19 +26,19 @@ class Move
     case value
     when 'rock' then other_move.value == 'scissors'
     when 'paper' then other_move.value == 'rock'
-    when 'scissors' then other_move.value =='paper'
+    when 'scissors' then other_move.value == 'paper'
     end
   end
 end
 
 class Player
   attr_accessor :move, :name
+
   def initialize(type = :human)
     @type = type
     @move = nil
     set_name
   end
-
 end
 
 class Human < Player
@@ -62,7 +63,6 @@ class Human < Player
     end
     self.move = Move.new(choice)
   end
-
 end
 
 class Computer < Player
@@ -100,11 +100,7 @@ class RPSGame
   end
 
   def display_results
-    puts
-    puts "#{human.name} chose #{human.move.value}"
-    puts "#{computer.name} chose #{computer.move.value}"
-    puts
-
+    display_moves
     if human.move > computer.move
       puts "#{human.name} wins!"
     elsif computer.move > human.move
@@ -112,12 +108,18 @@ class RPSGame
     else
       puts "It's a tie!"
     end
+    puts
+  end
 
+  def display_moves
+    puts
+    puts "#{human.name} chose #{human.move.value}"
+    puts "#{computer.name} chose #{computer.move.value}"
     puts
   end
 
   def display_goodbye_message
-   puts "Thanks for playing!"
+    puts "Thanks for playing!"
   end
 
   def play_again?
@@ -131,7 +133,6 @@ class RPSGame
     choice == 'y'
   end
 end
-
 
 #### Game code
 
