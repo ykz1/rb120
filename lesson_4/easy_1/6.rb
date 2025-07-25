@@ -1,0 +1,1 @@
+# `to_s` on a custom object by default will return the class name and an encoding of the object ID. On a custom object this is the same as `inspect`.
