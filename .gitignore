@@ -3,3 +3,5 @@
 db/*.sqlite3
 
 .DS_Store
+
+lesson_5/rb129_quiz/
